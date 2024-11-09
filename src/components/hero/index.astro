@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import Bullets from "../bullets/index.astro";
+import Button from "../button.astro";
+import Reviews from "./reviews.astro";
+---
+
+<div class="bg-[#D5CEC4] text-center lg:text-left">
+  <div class="lg:flex">
+    <div class="px-5 py-[30px] lg:py-[151px] lg:pl-[204px] lg:pr-[152px]">
+      <h1
+        class="text-[34px] leading-[44px] font-light lg:text-[66px] lg:leading-[81px]"
+      >
+        Змініть своє життя вже сьогодні
+      </h1>
+      <p class="leading-6 mt-4 lg:text-xl lg:leading-[30px]">
+        Відкрийте для себе силу медитації, яка зменшує стрес, дарує глибокий
+        сон, підвищує концентрацію та допомагає знайти справжню гармонію в
+        щоденному житті.
+      </p>
+      <Bullets />
+      <p
+        class="mb-4 mt-6 text-xl leading-[30px] lg:mt-[60px] lg:mb-6 lg:text-2xl lg:leading-[30px]"
+      >
+        <b>350 грн</b> замість <span class="line-through">1300 грн</span>
+      </p>
+      <Button />
+    </div>
+    <Image
+      alt=""
+      width="375"
+      height="446"
+      class="h-[446px] flex-shrink-0 object-cover rounded-tl-[110px] lg:rounded-tl-[410px] lg:h-[1063px] lg:w-full lg:max-w-[820px]"
+      src="/hero_image.jpeg"
+    />
+  </div>
+
+  <Reviews />
+</div>
