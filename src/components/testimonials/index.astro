@@ -1,4 +1,60 @@
+---
+import { Image } from "astro:assets";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Buttons from "./buttons.astro";
+---
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  new Swiper(".swiper", {
+    modules: [Navigation, Pagination],
+    spaceBetween: 30,
+    navigation: {
+      enabled: true,
+      nextEl: ".button-next",
+      prevEl: ".button-prev",
+    },
+  });
+</script>
+
 <div class="py-10 px-5 text-center">
   <h2 class="text-[28px] leading-[36px]">Відгуки</h2>
   <p class="my-6">Справжні історії, справжні зміни. Досвід наших учасників.</p>
+  <div class="swiper max-w-[281px] mb-6">
+    <div class="swiper-wrapper">
+      <Image
+        class="swiper-slide"
+        src="/testimonial-4.png"
+        alt=""
+        height="600"
+        width="600"
+      />
+      <Image
+        class="swiper-slide"
+        src="/testimonial-2.png"
+        alt=""
+        height="600"
+        width="600"
+      />
+      <Image
+        class="swiper-slide"
+        src="/testimonial-3.png"
+        alt=""
+        height="600"
+        width="600"
+      />
+      <Image
+        class="swiper-slide"
+        src="/testimonial-1.png"
+        alt=""
+        height="600"
+        width="600"
+      />
+    </div>
+  </div>
+  <Buttons />
 </div>
