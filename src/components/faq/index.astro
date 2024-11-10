@@ -2,6 +2,32 @@
 import Question from "./question.astro";
 ---
 
+<script>
+  const questions = document.getElementsByClassName("question");
+
+  for (const q of questions) {
+    const open = q.getElementsByClassName("open")[0] as HTMLButtonElement;
+    const close = q.getElementsByClassName("close")[0] as HTMLButtonElement;
+    const answer = q.getElementsByClassName(
+      "answer"
+    )[0] as HTMLParagraphElement;
+
+    open.addEventListener("click", () => {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      answer.classList.add("mb-6");
+      close.classList.remove("hidden");
+      open.classList.add("hidden");
+    });
+
+    close.addEventListener("click", () => {
+      answer.style.maxHeight = "0";
+      answer.classList.remove("mb-6");
+      close.classList.add("hidden");
+      open.classList.remove("hidden");
+    });
+  }
+</script>
+
 <div class="mx-5 my-10">
   <h2 class="text-[28px] leading-[30px] mb-5">Часті питання</h2>
   <div class="">
