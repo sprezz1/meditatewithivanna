@@ -1,3 +1,12 @@
+---
+type Props = {
+  iconColor?: string;
+  iconBgColor?: string;
+};
+
+const { iconColor = "white", iconBgColor = "#2B2A26" } = Astro.props;
+---
+
 <div class="flex gap-4 text-left">
   <svg
     width="24"
@@ -7,11 +16,11 @@
     xmlns="http://www.w3.org/2000/svg"
     class="flex-shrink-0"
   >
-    <circle cx="12" cy="12" r="12" fill="#2B2A26"></circle>
-    <path d="M18 7L9.53846 17L7 14.003" fill="#2B2A26"></path>
+    <circle cx="12" cy="12" r="12" fill={iconBgColor}></circle>
+    <path d="M18 7L9.53846 17L7 14.003" fill={iconBgColor}></path>
     <path
       d="M18 7L9.53846 17L7 14.003"
-      stroke="white"
+      stroke={iconColor}
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"></path>

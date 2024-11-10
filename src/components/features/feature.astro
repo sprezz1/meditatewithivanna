@@ -1,0 +1,19 @@
+---
+type Props = {
+  icon: string;
+  text: string;
+};
+
+const { icon, text } = Astro.props;
+---
+
+<div
+  class="px-3 py-[10px] border border-[#2B2A26] rounded-[1000px] flex items-center gap-4"
+>
+  <p
+    class="text-[30px] flex-shrink-0 leading-3 w-[30px] h-[34px] flex items-center"
+  >
+    {icon}
+  </p>
+  <p class="">{text}</p>
+</div>
