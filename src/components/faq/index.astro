@@ -6,12 +6,10 @@ import Question from "./question.astro";
 <script>
   const questions = document.getElementsByClassName("question");
 
-  for (const q of questions) {
-    const open = q.getElementsByClassName("open")[0] as HTMLButtonElement;
-    const close = q.getElementsByClassName("close")[0] as HTMLButtonElement;
-    const answer = q.getElementsByClassName(
-      "answer"
-    )[0] as HTMLParagraphElement;
+  for (const question of questions) {
+    const open = question.getElementsByClassName("open")[0] as HTMLButtonElement;
+    const close = question.getElementsByClassName("close")[0] as HTMLButtonElement;
+    const answer = question.getElementsByClassName("answer")[0] as HTMLParagraphElement;
 
     open.addEventListener("click", () => {
       answer.style.maxHeight = answer.scrollHeight + "px";
