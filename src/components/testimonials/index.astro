@@ -14,6 +14,8 @@ import Buttons from "./buttons.astro";
     modules: [Navigation, Pagination],
     spaceBetween: 30,
     loop: true,
+    slidesPerView: 1,
+    breakpoints: { 768: { slidesPerView: 3, spaceBetween: 10 } },
     navigation: {
       enabled: true,
       nextEl: ".button-next",
@@ -22,10 +24,16 @@ import Buttons from "./buttons.astro";
   });
 </script>
 
-<div class="py-10 px-5 text-center">
-  <h2 class="text-[28px] leading-[36px]">Відгуки</h2>
-  <p class="my-6">Справжні історії, справжні зміни. Досвід наших учасників.</p>
-  <div class="swiper max-w-[281px] mb-6">
+<div class="py-10 px-5 text-center xl:py-[120px]">
+  <h2 class="text-[28px] leading-[36px] xl:text-[52px] xl:leading-normal">
+    Відгуки
+  </h2>
+  <p class="my-6 xl:text-2xl xl:mb-10">
+    Справжні історії, справжні зміни. Досвід наших учасників.
+  </p>
+  <div
+    class="swiper max-w-[281px] md:max-w-[680px] lg:max-w-[1614px] mb-6 xl:mb-10"
+  >
     <div class="swiper-wrapper">
       <Image
         class="swiper-slide"

@@ -6,12 +6,14 @@ type Props = {
 const { question } = Astro.props;
 ---
 
-<div class="question flex gap-[14px] items-start pt-5 border-b border-black/50">
+<div
+  class="question flex gap-[14px] items-start pt-5 border-b border-black/50 xl:pt-6"
+>
   <div>
-    <p class="capitalize text-[20px] mb-6">{question}</p>
+    <p class="capitalize text-[20px] mb-6 xl:text-2xl">{question}</p>
     <p
       style="max-height: 0;"
-      class="overflow-hidden answer transition-all duration-700"
+      class="overflow-hidden answer transition-all duration-700 xl:text-xl"
     >
       <slot />
     </p>

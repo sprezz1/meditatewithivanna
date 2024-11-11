@@ -3,26 +3,28 @@ import { Image } from "astro:assets";
 ---
 
 <div class="bg-[#2B2A26] p-6 lg:py-[50px] overflow-scroll">
-  <div class="flex gap-[10px] items-start lg:gap-10 max-w-[1410px] mx-auto">
+  <div
+    class="flex gap-[10px] items-start lg:gap-10 md:max-w-full md:justify-center lg:max-w-[1410px] mx-auto"
+  >
     <Image
       alt=""
       width="246"
       height="123"
-      class="max-w-[246px] w-full object-contain"
+      class="max-w-[246px] md:max-w-[226px] lg:max-w-[276px] xl:max-w-[310px] 2xl:max-w-[447px] w-full object-contain"
       src="/review-1.png"
     />
     <Image
       alt=""
       width="239"
       height="98"
-      class="max-w-[239px] w-full object-contain"
+      class="max-w-[239px] md:max-w-[219px] lg:max-w-[269px] xl:max-w-[303px] 2xl:max-w-[436px] w-full object-contain"
       src="/review-2.png"
     />
     <Image
       alt=""
       width="246"
       height="121"
-      class="max-w-[246px] w-full object-contain pr-6"
+      class="max-w-[246px] md:max-w-[226px] lg:max-w-[276px] xl:max-w-[310px] 2xl:max-w-[447px] w-full object-contain pr-6 md:pr-0"
       src="/review-3.png"
     />
   </div>

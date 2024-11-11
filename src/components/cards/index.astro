@@ -3,19 +3,19 @@ import { Image } from "astro:assets";
 import Card from "./card.astro";
 ---
 
-<div class="px-5 py-10 max-w-[1796px] w-full mx-auto lg:py-[120px]">
+<div class="px-5 py-10 max-w-[1796px] w-full mx-auto xl:py-[120px]">
   <h2
-    class="text-[28px] leading-9 text-center mb-4 lg:mb-[50px] lg:text-[52px]"
+    class="text-[28px] leading-9 text-center mb-4 lg:mb-[50px] lg:text-[52px] lg:leading-normal"
   >
     Для кого створений цей курс?
   </h2>
-  <div class="grid gap-6 lg:grid-cols-4">
+  <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
     <Image
       alt=""
       src="/hand-1.png"
       height="421"
       width="421"
-      class="hidden lg:block h-full object-cover rounded-3xl"
+      class="hidden xl:block h-full object-cover rounded-3xl"
     />
     <Card
       icon="😰"
@@ -47,7 +47,7 @@ import Card from "./card.astro";
       src="/hand-2.png"
       height="421"
       width="421"
-      class="hidden lg:block h-full object-cover rounded-full"
+      class="hidden xl:block h-full object-cover rounded-full"
     />
     <Card
       icon="🤲"

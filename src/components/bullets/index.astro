@@ -1,8 +1,10 @@
 ---
 import Bullet from "./bullet.astro";
+
+const { className = "" } = Astro.props;
 ---
 
-<div class="space-y-5 mt-6 lg:mt-[52px]">
+<div class={`${className} space-y-5 mt-6`}>
   <Bullet>
     <span class="font-semibold">7 унікальних медитацій</span> для різних потреб:
     від зменшення тривожності до покращення сну.

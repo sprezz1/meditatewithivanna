@@ -3,23 +3,32 @@ import Button from "./button.astro";
 ---
 
 <div
-  class="py-10 px-5 text-white text-center"
   style={{
     background:
       "linear-gradient(0deg, rgba(140, 101, 70, 0.85) 0%, rgba(140, 101, 70, 0.85) 100%), url(/cta.jpeg) lightgray 50% / cover no-repeat",
   }}
 >
-  <h2 class="text-[34px] leading-[44px] font-light">
-    Не відкладайте щастя на потім
-  </h2>
-  <p class="text-2xl my-[15px]">розпочніть вже сьогодні!</p>
-  <p>
-    Ваше нове життя починається з одного натискання кнопки. Інвестуйте у себе та
-    отримайте безстроковий доступ до медитацій, що допоможуть вам перетворити
-    своє життя.
-  </p>
-  <Button className="bg-[#2B2A26] mt-10 mb-4 text-xl" />
-  <p class="text-xl leading-[30px]">
-    <b>350 грн</b> замість <span class="line-through">1300 грн</span>
-  </p>
+  <div
+    class="py-10 md:py-20 px-5 text-white text-center xl:max-w-[1236px] xl:mx-auto xl:py-[118px]"
+  >
+    <h2
+      class="text-[34px] leading-[44px] font-light capitalize xl:leading-normal xl:text-[52px] 2xl:text-[72px]"
+    >
+      Не відкладайте щастя на потім
+    </h2>
+    <p
+      class="text-2xl my-[15px] capitalize xl:my-6 xl:text-4xl xl:leading-[46px]"
+    >
+      розпочніть вже сьогодні!
+    </p>
+    <p class="xl:max-w-[792px] mx-auto xl:text-2xl xl:leading-[34px]">
+      Ваше нове життя починається з одного натискання кнопки. Інвестуйте у себе
+      та отримайте безстроковий доступ до медитацій, що допоможуть вам
+      перетворити своє життя.
+    </p>
+    <Button className="bg-[#2B2A26] mt-10 mb-4 text-xl md:max-w-[360px]" />
+    <p class="text-xl leading-[30px] xl:text-2xl">
+      <b>350 грн</b> замість <span class="line-through">1300 грн</span>
+    </p>
+  </div>
 </div>
