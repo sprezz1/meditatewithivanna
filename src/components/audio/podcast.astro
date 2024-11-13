@@ -7,9 +7,10 @@ type Props = {
   image: string;
   label: string;
   title: string;
+  sound: string;
 };
 
-const { image, label, title } = Astro.props;
+const { image, label, title, sound } = Astro.props;
 ---
 
 <div
@@ -41,9 +42,23 @@ const { image, label, title } = Astro.props;
       class="w-[160px] h-[160px] mx-auto my-[29px] object-cover rounded-3xl xl:hidden"
     />
     <p class="flex-grow xl:text-xl xl:mt-4 xl:leading-[30px]"><slot /></p>
-    <div class="mt-5 flex items-center gap-4">
+    <div data-sound={sound} class="mt-5 flex items-center gap-4">
       <button
-        class="h-[54px] w-[54px] flex-shrink-0 bg-[#EEECDA] transition hover:bg-[#E4DFC0] rounded-full flex justify-center items-center"
+        class="hidden pause-btn h-[54px] w-[54px] flex-shrink-0 bg-[#EEECDA] transition hover:bg-[#E4DFC0] rounded-full justify-center items-center"
+      >
+        <svg
+          width="25"
+          height="24"
+          viewBox="0 0 25 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="7" y="3" width="4" height="18" fill="#2B2A26"></rect>
+          <rect x="14" y="3" width="4" height="18" fill="#2B2A26"></rect>
+        </svg>
+      </button>
+      <button
+        class="play-btn h-[54px] w-[54px] flex-shrink-0 bg-[#EEECDA] transition hover:bg-[#E4DFC0] rounded-full flex justify-center items-center"
       >
         <svg
           width="25"

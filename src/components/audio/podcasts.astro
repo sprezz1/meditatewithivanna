@@ -2,6 +2,47 @@
 import Podcast from "./podcast.astro";
 ---
 
+<script>
+  import { Howl } from "howler";
+
+  const introductions = document.querySelectorAll("[data-sound]");
+
+  let currentSound: Howl | null = null;
+  let currentElement: [HTMLButtonElement, HTMLButtonElement] | null = null;
+
+  function stopCurrentSound() {
+    if (currentSound && currentSound.playing()) {
+      currentSound.stop();
+      currentElement[0].classList.replace("hidden", "flex");
+      currentElement[1].classList.add("hidden");
+    }
+  }
+
+  for (const introduction of introductions) {
+    const soundPath = introduction.getAttribute("data-sound");
+    const sound = new Howl({ src: [soundPath] });
+    const play = introduction.querySelector(".play-btn") as HTMLButtonElement;
+    const pause = introduction.querySelector(".pause-btn") as HTMLButtonElement;
+
+    play.addEventListener("click", () => {
+      play.classList.add("hidden");
+      pause.classList.replace("hidden", "flex");
+      stopCurrentSound();
+      sound.play();
+      currentSound = sound;
+      currentElement = [play, pause];
+    });
+
+    pause.addEventListener("click", () => {
+      pause.classList.add("hidden");
+      play.classList.replace("hidden", "flex");
+      sound.stop();
+      currentElement = null;
+      currentSound = null;
+    });
+  }
+</script>
+
 <div
   class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-[60px] xl:mt-0 xl:grid-cols-1 xl:gap-[30px] xl:w-2/3"
 >
@@ -9,6 +50,7 @@ import Podcast from "./podcast.astro";
     image="/meditation-1.png"
     title="зменшення тривожності"
     label="медитація 01"
+    sound="/introductions/introduction-1.m4a"
   >
     Глибока медитація для заспокоєння розуму, звільнення від тривожних думок та
     відчуття внутрішнього спокою. Дослідження показують, що регулярна медитація
@@ -19,6 +61,7 @@ import Podcast from "./podcast.astro";
     image="/meditation-2.png"
     title="Прийняття себе"
     label="медитація 02"
+    sound="/introductions/introduction-2.m4a"
   >
     Потужна практика, яка допомагає розвивати любов та повагу до себе, приймати
     свою унікальність та формувати здорову самооцінку. Наукові дослідження
@@ -29,13 +72,19 @@ import Podcast from "./podcast.astro";
     image="/meditation-3.png"
     title="Фокус та концентрація"
     label="медитація 03"
+    sound="/introductions/introduction-3.m4a"
   >
     Спеціальна медитація для підвищення здатності зосереджуватись та мислити
     ясно навіть у складних ситуаціях. Вчені підтверджують, що медитація покращує
     активність префронтальної кори мозку, яка відповідає за увагу та прийняття
     рішень, що підвищує продуктивність і концентрацію.
   </Podcast>
-  <Podcast image="/meditation-4.png" title="Вдячність" label="медитація 04">
+  <Podcast
+    image="/meditation-4.png"
+    title="Вдячність"
+    label="медитація 04"
+    sound="/introductions/introduction-4.m4a"
+  >
     Практика, яка розвиває здатність помічати красу в простих речах, пробуджує
     вдячність та наповнює життя радістю і позитивом. Дослідження виявили, що
     регулярна практика вдячності збільшує рівень щастя та покращує психологічне
@@ -45,6 +94,7 @@ import Podcast from "./podcast.astro";
     image="/meditation-5.png"
     title="Сон та відновлення"
     label="медитація 05"
+    sound="/introductions/introduction-5.m4a"
   >
     Медитація для полегшення процесу засинання та забезпечення якісного
     відпочинку, що допоможе прокидатися з почуттям енергії та оновленості.
@@ -55,6 +105,7 @@ import Podcast from "./podcast.astro";
     image="/meditation-6.png"
     title="Стрес та втома"
     label="медитація 06"
+    sound="/introductions/introduction-6.m4a"
   >
     Ефективна практика для зняття напруги та швидкого відновлення енергії після
     інтенсивних днів. Дослідження підтверджують, що медитація сприяє зниженню
@@ -65,6 +116,7 @@ import Podcast from "./podcast.astro";
     image="/meditation-7.png"
     title="Емоційна регуляція"
     label="медитація 07"
+    sound="/introductions/introduction-7.m4a"
   >
     Інструмент для навчання керування емоціями, який дозволяє зберігати спокій,
     впевненість та баланс у будь-яких ситуаціях. Наукові дослідження показують,
