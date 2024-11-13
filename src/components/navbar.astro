@@ -1,19 +1,29 @@
+---
+import Button from "./button.astro";
+---
+
 <script>
   const hero = document.getElementById("hero");
   const navbar = document.getElementById("navbar");
+  const mobileCta = document.getElementById("mobile-cta");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > hero.offsetHeight) navbar.classList.add("!top-0");
-    else navbar.classList.remove("!top-0");
+    if (window.scrollY > hero.offsetHeight) {
+      navbar.classList.add("!top-0");
+      mobileCta.classList.add("!bottom-0");
+    } else {
+      navbar.classList.remove("!top-0");
+      mobileCta.classList.remove("!bottom-0");
+    }
   });
 </script>
 
 <div
   id="navbar"
-  class="bg-[#2B2A26] text-white fixed -top-[80px] transition-all duration-300 w-full z-10"
+  class="bg-[#2B2A26] text-white fixed -top-[80px] transition-all duration-300 w-full z-10 hidden md:flex"
 >
   <div
-    class="max-w-[1592px] mx-auto flex justify-between items-center p-2 md:px-5 md: py-3 xl:px-10 xl:py-[12px]"
+    class="max-w-[1592px] mx-auto flex gap-20 justify-between items-center p-2 md:px-5 md: py-3 xl:px-10 xl:py-[12px]"
   >
     <p class="text-xs md:text-base xl:text-2xl">
       Ваше нове життя починається з одного натискання кнопки.
@@ -39,4 +49,14 @@
       Отримати&nbsp;доступ
     </button>
   </div>
+</div>
+
+<div
+  id="mobile-cta"
+  class="py-[10px] px-5 bg-[#2B2A26] text-white fixed -bottom-[100px] transition-all duration-300 w-full z-10 md:hidden"
+>
+  <Button className="bg-[#8C6546] hover:bg-[#A37454] text-sm !py-[13px]" />
+  <p class="mt-[6px] text-xs leading-[16px] text-center">
+    <b>350 грн</b> замість <span class="line-through">1300 грн</span>
+  </p>
 </div>
