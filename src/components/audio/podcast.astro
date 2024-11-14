@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import DesktopVisualizer from "./desktop-visualizer.svg?raw";
-import MobileVisualizer from "./mobile-visualizer.svg?raw";
+import DesktopVisualizer from "../../svgs/desktop-visualizer.svg?raw";
+import MobileVisualizer from "../../svgs/mobile-visualizer.svg?raw";
+import Pause from "../../svgs/pause.svg?raw";
+import Play from "../../svgs/play.svg?raw";
 
 type Props = {
   image: string;
@@ -46,31 +48,12 @@ const { image, label, title, sound } = Astro.props;
       <button
         class="hidden pause-btn h-[54px] w-[54px] flex-shrink-0 bg-[#EEECDA] transition hover:bg-[#E4DFC0] rounded-full justify-center items-center"
       >
-        <svg
-          width="25"
-          height="24"
-          viewBox="0 0 25 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect x="7" y="3" width="4" height="18" fill="#2B2A26"></rect>
-          <rect x="14" y="3" width="4" height="18" fill="#2B2A26"></rect>
-        </svg>
+        <Fragment set:html={Pause} />
       </button>
       <button
         class="play-btn h-[54px] w-[54px] flex-shrink-0 bg-[#EEECDA] transition hover:bg-[#E4DFC0] rounded-full flex justify-center items-center"
       >
-        <svg
-          width="25"
-          height="24"
-          viewBox="0 0 25 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M22.2781 10.7156L8.77813 2.47497C8.55326 2.33247 8.29356 2.25448 8.02738 2.24952C7.76121 2.24456 7.49878 2.31282 7.26876 2.44684C7.03533 2.57491 6.84074 2.76353 6.70545 2.99285C6.57017 3.22217 6.4992 3.48372 6.50001 3.74997V20.25C6.4992 20.5162 6.57017 20.7778 6.70545 21.0071C6.84074 21.2364 7.03533 21.425 7.26876 21.5531C7.49878 21.6871 7.76121 21.7554 8.02738 21.7504C8.29356 21.7455 8.55326 21.6675 8.77813 21.525L22.2781 13.2843C22.4994 13.1509 22.6824 12.9625 22.8095 12.7374C22.9365 12.5124 23.0033 12.2584 23.0033 12C23.0033 11.7416 22.9365 11.4875 22.8095 11.2625C22.6824 11.0375 22.4994 10.8491 22.2781 10.7156Z"
-            fill="#2B2A26"></path>
-        </svg>
+        <Fragment set:html={Play} />
       </button>
       <Fragment set:html={DesktopVisualizer} />
       <Fragment set:html={MobileVisualizer} />

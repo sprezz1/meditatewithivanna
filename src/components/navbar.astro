@@ -1,5 +1,6 @@
 ---
 import Button from "./button.astro";
+import Arrow from "../svgs/arrow.svg?raw";
 ---
 
 <script>
@@ -28,21 +29,7 @@ import Button from "./button.astro";
     <p class="text-xs md:text-base xl:text-2xl">
       Ваше нове життя починається з одного натискання кнопки.
     </p>
-    <svg
-      class="hidden xl:block"
-      width="236"
-      height="44"
-      viewBox="0 0 236 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M0.499999 23.4998L232 23.5" stroke="white" stroke-linecap="round"
-      ></path>
-      <path
-        d="M219.696 18.8986C223.799 20.5704 228.7 21.9124 232.432 23.1829C234.372 23.8433 234.472 23.3232 233.31 23.7419C229.541 25.1003 224.39 28.4908 221.794 31.5195"
-        stroke="white"
-        stroke-linecap="round"></path>
-    </svg>
+    <Fragment set:html={Arrow} />
     <button
       class="text-sm md:text-base px-3 flex py-2 xl:py-4 xl:px-8 rounded-[50px] bg-[#8C6546] transition hover:bg-[#A37454] leading-3"
     >
