@@ -5,40 +5,115 @@ import Podcast from "./podcast.astro";
 <script>
   import { Howl } from "howler";
 
+  type Sound = {
+    sound: any;
+    seekPercentage: number;
+    play: HTMLElement;
+    pause: HTMLElement;
+    interval: any;
+    svgs: NodeListOf<SVGElement>;
+  };
+
   const introductions = document.querySelectorAll("[data-sound]");
 
-  let currentSound: Howl | null = null;
-  let currentElement: [HTMLButtonElement, HTMLButtonElement] | null = null;
+  const sounds: Record<string, Sound> = {};
 
-  function stopCurrentSound() {
-    if (currentSound && currentSound.playing()) {
-      currentSound.stop();
-      currentElement[0].classList.replace("hidden", "flex");
-      currentElement[1].classList.add("hidden");
+  function toggleButtons(sound: Sound, isPlaying: boolean) {
+    if (isPlaying) {
+      sound.play.classList.add("hidden");
+      sound.pause.classList.replace("hidden", "flex");
+    } else {
+      sound.pause.classList.add("hidden");
+      sound.play.classList.replace("hidden", "flex");
     }
+  }
+
+  function stopOtherSounds() {
+    for (const id in sounds) {
+      const sound = sounds[id].sound;
+
+      if (sound.playing()) {
+        sound.pause();
+        toggleButtons(sounds[id], false);
+        clearInterval(sounds[id].interval);
+      }
+    }
+  }
+
+  function startInterval(sound: Sound) {
+    const stops = [];
+
+    sound.svgs.forEach((svg) => {
+      const stop2 = svg.querySelector(".stop2");
+      const stop3 = svg.querySelector(".stop3");
+      stops.push(stop2, stop3);
+    });
+
+    clearInterval(sound.interval);
+
+    sound.interval = setInterval(() => {
+      sound.seekPercentage += 0.1;
+      for (const stop of stops) {
+        stop.setAttribute("offset", `${sound.seekPercentage}%`);
+      }
+    }, 100);
+  }
+
+  function playAudioAtTime(event, sound: Sound) {
+    stopOtherSounds();
+    const svg = event.target.closest("svg");
+    const svgWidth = svg.getBoundingClientRect().width;
+    const clickedX = event.clientX - svg.getBoundingClientRect().left;
+    const audioDuration = sound.sound.duration();
+    const seekTime = (clickedX / svgWidth) * audioDuration;
+    sound.seekPercentage = (seekTime / audioDuration) * 100;
+    toggleButtons(sound, true);
+    startInterval(sound);
+    sound.sound.seek(seekTime);
+    sound.sound.play();
   }
 
   for (const introduction of introductions) {
     const soundPath = introduction.getAttribute("data-sound");
-    const sound = new Howl({ src: [soundPath] });
     const play = introduction.querySelector(".play-btn") as HTMLButtonElement;
     const pause = introduction.querySelector(".pause-btn") as HTMLButtonElement;
+    const svgs = introduction.querySelectorAll(
+      "& > div > svg"
+    ) as NodeListOf<SVGElement>;
+
+    sounds[soundPath] = {
+      sound: new Howl({
+        src: [soundPath],
+        onend: () => {
+          sounds[soundPath].seekPercentage = 0;
+          clearInterval(sounds[soundPath].interval);
+          toggleButtons(sounds[soundPath], false);
+        },
+      }),
+      seekPercentage: 0,
+      play,
+      pause,
+      svgs,
+      interval: null,
+    };
+
+    svgs.forEach((svg) =>
+      svg.addEventListener("click", (e) =>
+        playAudioAtTime(e, sounds[soundPath])
+      )
+    );
 
     play.addEventListener("click", () => {
-      play.classList.add("hidden");
-      pause.classList.replace("hidden", "flex");
-      stopCurrentSound();
-      sound.play();
-      currentSound = sound;
-      currentElement = [play, pause];
+      toggleButtons(sounds[soundPath], true);
+      stopOtherSounds();
+      sounds[soundPath].sound.play();
+      startInterval(sounds[soundPath]);
     });
 
     pause.addEventListener("click", () => {
-      pause.classList.add("hidden");
-      play.classList.replace("hidden", "flex");
-      sound.stop();
-      currentElement = null;
-      currentSound = null;
+      toggleButtons(sounds[soundPath], false);
+      clearInterval(sounds[soundPath].interval);
+      sounds[soundPath].sound.pause();
     });
   }
 </script>

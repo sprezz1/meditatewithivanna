@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import DesktopVisualizer from "../../svgs/desktop-visualizer.svg?raw";
-import MobileVisualizer from "../../svgs/mobile-visualizer.svg?raw";
+import DesktopVisualizer from "../../svgs/desktop-visualizer.astro";
+import MobileVisualizer from "../../svgs/mobile-visualizer.astro";
 import Pause from "../../svgs/pause.svg?raw";
 import Play from "../../svgs/play.svg?raw";
 
@@ -55,8 +55,10 @@ const { image, label, title, sound } = Astro.props;
       >
         <Fragment set:html={Play} />
       </button>
-      <Fragment set:html={DesktopVisualizer} />
-      <Fragment set:html={MobileVisualizer} />
+      <div class="w-full cursor-pointer">
+        <MobileVisualizer id={`${sound}-mobile`} />
+        <DesktopVisualizer id={`${sound}-desktop`} />
+      </div>
     </div>
   </div>
 </div>
