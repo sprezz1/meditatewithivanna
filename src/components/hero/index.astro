@@ -3,27 +3,41 @@ import { Image } from "astro:assets";
 import Bullets from "../bullets/index.astro";
 import Button from "../button.astro";
 import Reviews from "./reviews.astro";
+import Logo from "../../svgs/logo.svg?raw";
 ---
 
 <div class="bg-[#D5CEC4] text-center lg:text-left">
-  <div id="hero" class="md:flex md:gap-10 md:items-center xl:gap-[152px]">
-    <div class="px-5 py-[30px] md:flex-1 md:pl-5 md:pr-0 xl:justify-items-end">
-      <div class="md:max-w-[744px]">
-        <h1
-          class="text-[34px] leading-[44px] font-light xl:text-[66px] xl:leading-[81px]"
+  <div id="hero" class="md:flex md:gap-10 xl:gap-[152px]">
+    <div
+      class="px-5 pt-2.5 pb-[30px] md:flex-1 md:pl-5 md:pr-0 xl:justify-items-end"
+    >
+      <div class="md:max-w-[744px] flex flex-col justify-between h-full">
+        <div
+          class="flex gap-[14px] items-center justify-center lg:justify-normal md:mt-[21px]"
         >
-          Змініть своє життя вже сьогодні
-        </h1>
-        <p class="leading-6 mt-4 xl:text-xl">
-          Відкрийте для себе силу медитації, яка зменшує стрес, дарує глибокий
-          сон, підвищує концентрацію та допомагає знайти справжню гармонію в
-          щоденному житті.
-        </p>
-        <Bullets className="xl:mt-[52px] xl:mb-[60px] xl:text-2xl" />
-        <p class="mb-4 mt-6 text-xl leading-[30px] xl:text-2xl">
-          <b>350 грн</b> замість <span class="line-through">1300 грн</span>
-        </p>
-        <Button />
+          <div class="w-[30px] h-7 md:w-[42px] md:h-10">
+            <Fragment set:html={Logo} />
+          </div>
+          <p class="text-sm leading-[30px]">Meditate with Ivanna</p>
+        </div>
+        <div>
+          <h1
+            class="text-[34px] leading-[44px] md:text-2xl md:leading-8 lg:text-[34px] lg:leading-[44px] font-light xl:text-[66px] xl:leading-[81px]"
+          >
+            Змініть своє життя вже сьогодні
+          </h1>
+          <p class="leading-6 mt-4 xl:text-xl">
+            Відкрийте для себе силу медитації, яка зменшує стрес, дарує глибокий
+            сон, підвищує концентрацію та допомагає знайти справжню гармонію в
+            щоденному житті.
+          </p>
+          <Bullets className="xl:mt-[52px] xl:mb-[60px] xl:text-2xl" />
+          <p class="mb-4 mt-6 text-xl leading-[30px] xl:text-2xl">
+            <b>350 грн</b> замість <span class="line-through">1300 грн</span>
+          </p>
+          <Button />
+        </div>
+        <div class="hidden md:block"></div>
       </div>
     </div>
     <Image
