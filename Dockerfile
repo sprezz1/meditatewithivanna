@@ -16,17 +16,16 @@ COPY . .
 # Build the static site
 RUN npm run build
 
-# Stage 2: Serve the static files with Nginx
-FROM nginx:alpine AS production
+# Stage 2: Minimal image with static files
+FROM alpine:latest
 
-# Remove the default Nginx static files
-RUN rm -rf /usr/share/nginx/html/*
+# Set the working directory
+WORKDIR /usr/share/nginx/html
 
 # Copy the build output from the previous stage
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
-# Expose the default Nginx HTTP port
-EXPOSE 8081
+# No need to install Nginx; Coolify handles serving the files
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Optionally, set the entrypoint if required by Coolify
+CMD ["sh"]
