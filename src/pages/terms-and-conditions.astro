@@ -1,0 +1,154 @@
+---
+import Button from "../components/button.astro";
+import Footer from "../components/footer.astro";
+import Logo from "../components/logo.astro";
+---
+
+<script>
+  function setActiveButton(event) {
+    const buttons = document.querySelectorAll("#list > a");
+    const classes = ["bg-[#2B2A26]", "text-white", "before:!bg-[#8C6546]"];
+    buttons.forEach((button) => button.classList.remove(...classes));
+    event.currentTarget.classList.add(...classes);
+  }
+
+  document
+    .querySelectorAll("#list > a")
+    .forEach((button) => button.addEventListener("click", setActiveButton));
+</script>
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Ivanna Korniiuk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased">
+    <div class="border-b">
+      <div class="max-w-[1528px] mx-auto px-2 py-5 flex justify-between">
+        <Logo />
+        <Button
+          className="!py-4 !px-8 w-auto !text-base bg-[#8C6546] hover:bg-[#A37454]"
+        />
+      </div>
+    </div>
+
+    <div class="flex gap-[162px] max-w-[1528px] mx-auto px-2 my-[120px]">
+      <div id="list" class="flex flex-col gap-5 list-none w-full max-w-[362px]">
+        <a
+          href="#terms-and-conditions"
+          class="relative pl-12 before:absolute before:left-8 before:top-6 before:bg-[#EBE7E0] rounded-md before:rounded-full before:size-2 px-8 py-4"
+        >
+          Правила і умови
+        </a>
+        <a
+          href="#refund-policy"
+          class="relative pl-12 before:absolute before:left-8 before:top-6 before:bg-[#EBE7E0] rounded-md before:rounded-full before:size-2 px-8 py-4"
+        >
+          Політика повернення коштів
+        </a>
+        <a
+          href="#contact"
+          class="relative pl-12 before:absolute before:left-8 before:top-6 before:bg-[#EBE7E0] rounded-md before:rounded-full before:size-2 px-8 py-4"
+        >
+          Контактна інформація
+        </a>
+      </div>
+      <div class="max-w-[988px] flex flex-col gap-[240px]">
+        <div class="scroll-mt-10" id="terms-and-conditions">
+          <h1 class="text-[52px] leading-[62px] mb-10">Правила і умови</h1>
+          <p>
+            Придбаваючи наш курс медитацій, ви погоджуєтесь із наступними
+            правилами та умовами:
+          </p>
+          <br />
+          <ul class="list-disc ml-5 [&>li]:pl-1 marker:text-[10px]">
+            <li>
+              Деталі послуги: Наш курс медитацій включає 7 сеансів медитації,
+              спрямованих на релаксацію, самоприйняття та емоційну регуляцію.
+              Після оплати ви отримаєте доступ до всіх матеріалів курсу у
+              цифровому форматі.
+            </li>
+            <li>
+              Способи оплати: Оплата може здійснюватись за допомогою банківських
+              карток (кредитних або дебетових) або через інші підтримувані
+              платіжні сервіси.
+            </li>
+            <li>
+              Доставка: Після успішної оплати ви отримаєте електронний лист з
+              доступом до матеріалів курсу протягом 24 годин
+            </li>
+            <li>
+              Використання: Усі матеріали курсу призначені лише для особистого
+              використання і не можуть бути передані, перепродані або
+              розповсюджені без дозволу.
+            </li>
+            <li>
+              Зміни умов: Ми залишаємо за собою право вносити зміни до цих
+              правил і умов. Усі зміни будуть опубліковані на цій сторінці.
+            </li>
+          </ul>
+        </div>
+        <div class="scroll-mt-10" id="refund-policy">
+          <h1 class="text-[52px] leading-[62px] mb-10">
+            Політика повернення коштів
+          </h1>
+          <ul class="list-disc ml-5 [&>li]:pl-1 marker:text-[10px]">
+            <li>
+              Повернення коштів: Через цифровий формат наших продуктів,
+              повернення коштів не передбачене після отримання доступу до
+              матеріалів курсу.
+            </li>
+            <li>
+              Скасування замовлення: Якщо ви помилково здійснили оплату або
+              бажаєте скасувати покупку до отримання доступу до матеріалів, ви
+              можете подати запит на повернення коштів протягом 24 годин після
+              транзакції.
+            </li>
+            <li>
+              Як подати запит на повернення коштів: Надішліть листа на
+              ivannna.korniyuk@gmail.com із зазначенням деталей оплати та
+              причини запиту. Повернення буде оброблено протягом 7 робочих днів.
+            </li>
+            <li>
+              Неповернені товари: Завершені сеанси або доступні матеріали курсу
+              не підлягають поверненню.
+            </li>
+          </ul>
+          <br />
+          <p>
+            Якщо у вас є будь-які запитання або зауваження щодо покупки, будь
+            ласка, зв'яжіться з нами.
+          </p>
+        </div>
+        <div class="scroll-mt-10" id="contact">
+          <h1 class="text-[52px] leading-[62px] mb-10">Контактна інформація</h1>
+          <ul class="list-disc ml-5 [&>li]:pl-1 marker:text-[10px]">
+            <li>Юридична назва: Корніюк Іванна</li>
+            <li>ІПН: 3547213049</li>
+            <li>
+              Юридична адреса: Україна, область Волинська, район Іваничівський,
+              село Мишів, вулиця 8 Березня, буд. 16
+            </li>
+            <li>
+              Фактична адреса: Україна, область Волинська, район Іваничівський,
+              село Мишів, вулиця 8 Березня, буд. 16
+            </li>
+            <li>Телефон: +380980676465</li>
+            <li>Електронна адреса: ivannna.korniyuk@gmail.com оверненню.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <Footer />
+</html>
