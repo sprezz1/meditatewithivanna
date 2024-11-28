@@ -6,9 +6,9 @@ import Logo from "./logo.astro";
 <div
   class="mx-5 my-10 text-center lg:text-xl md:px-10 lg:flex lg:justify-between lg:items-center lg:max-w-[1592px] lg:my-[50px] lg:mx-auto pb-[88px] md:pb-0"
 >
-  <Logo className="mb-5 md:hidden flex justify-center flex-col !gap-0" />
+  <Logo className="mb-5 lg:hidden flex justify-center flex-col !gap-0" />
   <div class="lg:flex lg:items-center lg:gap-6">
-    <p>Залишилися питання?</p>
+    <p class="text-[13px] md:text-xl">Залишилися питання?</p>
     <button
       class="py-4 px-14 flex items-center gap-[10px] bg-[#EEECDA] hover:bg-[#E0DBC1] transition rounded-[100px] mx-auto mt-4 mb-5 lg:mt-0 lg:mb-0 leading-[30px]"
     >
@@ -16,5 +16,8 @@ import Logo from "./logo.astro";
       <span>Пиши в телеграм</span>
     </button>
   </div>
-  <a href="mailto:ivannna.korniyuk@gmail.com">ivannna.korniyuk@gmail.com</a>
+  <div class="flex flex-col gap-2.5 text-xs lg:text-base lg:gap-5 lg:flex-row">
+    <a href="/terms-and-conditions">Правила і умови</a>
+    <a href="/terms-and-conditions">Контактна інформація</a>
+  </div>
 </div>
