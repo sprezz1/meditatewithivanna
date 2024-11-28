@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Bullets from "../bullets/index.astro";
 import Button from "../button.astro";
 import Reviews from "./reviews.astro";
-import Logo from "../../svgs/logo.svg?raw";
+import Logo from "../logo.astro";
 ---
 
 <div class="bg-[#D5CEC4] text-center lg:text-left">
@@ -12,14 +12,9 @@ import Logo from "../../svgs/logo.svg?raw";
       class="px-5 pt-2.5 pb-[30px] md:flex-1 md:pl-5 md:pr-0 xl:justify-items-end"
     >
       <div class="md:max-w-[744px] flex flex-col justify-between h-full">
-        <div
-          class="mb-2.5 md:mb-0 flex gap-[14px] items-center justify-center lg:justify-normal md:mt-[21px]"
-        >
-          <div class="w-[30px] h-7 md:w-[42px] md:h-10">
-            <Fragment set:html={Logo} />
-          </div>
-          <p class="text-sm leading-[30px]">Meditate with Ivanna</p>
-        </div>
+        <Logo
+          className="mb-5 md:mb-0 flex items-center justify-center lg:justify-normal md:mt-[21px]"
+        />
         <div>
           <h1
             class="text-[34px] leading-[44px] md:text-2xl md:leading-8 lg:text-[34px] lg:leading-[44px] font-light xl:text-[66px] xl:leading-[81px]"

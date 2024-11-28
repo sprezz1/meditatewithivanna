@@ -1,19 +1,12 @@
 ---
 import Telegram from "../svgs/telegram.svg?raw";
-import Logo from "../svgs/logo.svg?raw";
+import Logo from "./logo.astro";
 ---
 
 <div
   class="mx-5 my-10 text-center lg:text-xl md:px-10 lg:flex lg:justify-between lg:items-center lg:max-w-[1592px] lg:my-[50px] lg:mx-auto pb-[88px] md:pb-0"
 >
-  <div
-    class="flex flex-col gap-[6px] justify-center items-center mb-5 lg:mb-0 lg:flex-row lg:gap-[14px]"
-  >
-    <div class="w-12 h-11 lg:w-11 lg:h-[42px]">
-      <Fragment set:html={Logo} />
-    </div>
-    <p class="text-sm leading-[30px] lg:text-2xl">Meditate with Ivanna</p>
-  </div>
+  <Logo className="mb-5 md:hidden flex justify-center flex-col !gap-0" />
   <div class="lg:flex lg:items-center lg:gap-6">
     <p>Залишилися питання?</p>
     <button

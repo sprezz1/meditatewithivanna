@@ -1,0 +1,16 @@
+---
+import LogoIcon from "../svgs/logo.svg?raw";
+
+type Props = {
+  className?: string;
+};
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`${className} flex items-center gap-2.5`}>
+  <Fragment set:html={LogoIcon} />
+  <span class="leading-[30px] font-semibold text-[21px] mt-1.5">
+    Meditate<span class="text-[10px] px-1">with</span>Ivanna
+  </span>
+</div>
