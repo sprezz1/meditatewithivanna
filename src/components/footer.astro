@@ -1,10 +1,16 @@
 ---
 import Telegram from "../svgs/telegram.svg?raw";
 import Logo from "./logo.astro";
+
+type Props = {
+  className?: string;
+};
+
+const { className = "" } = Astro.props;
 ---
 
 <div
-  class="mx-5 my-10 text-center lg:text-xl md:px-10 lg:flex lg:justify-between lg:items-center lg:max-w-[1592px] lg:my-[50px] lg:mx-auto pb-[88px] md:pb-0"
+  class={`${className} mx-5 my-10 text-center lg:text-xl md:px-10 lg:flex lg:justify-between lg:items-center lg:max-w-[1592px] lg:my-[50px] lg:mx-auto pb-[88px] md:pb-0`}
 >
   <Logo className="mb-5 lg:hidden flex justify-center flex-col !gap-0" />
   <div class="lg:flex lg:items-center lg:gap-6">

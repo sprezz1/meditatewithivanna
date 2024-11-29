@@ -34,15 +34,22 @@ import Logo from "../components/logo.astro";
   <body class="antialiased">
     <div class="border-b">
       <div class="max-w-[1528px] mx-auto px-2 py-5 flex justify-between">
-        <Logo />
+        <a href="/" class="flex mx-auto lg:mx-0">
+          <Logo />
+        </a>
         <Button
-          className="!py-4 !px-8 w-auto !text-base bg-[#8C6546] hover:bg-[#A37454]"
+          className="!py-4 !px-8 w-auto !text-base hidden lg:block bg-[#8C6546] hover:bg-[#A37454]"
         />
       </div>
     </div>
 
-    <div class="flex gap-[162px] max-w-[1528px] mx-auto px-2 my-[120px]">
-      <div id="list" class="flex flex-col gap-5 list-none w-full max-w-[362px]">
+    <div
+      class="flex gap-[100px] xl:gap-[162px] max-w-[1528px] mx-auto px-5 lg:px-2 my-11 lg:my-[120px]"
+    >
+      <div
+        id="list"
+        class="hidden lg:flex flex-col gap-5 list-none w-full max-w-[362px]"
+      >
         <a
           href="#terms-and-conditions"
           class="relative pl-12 before:absolute before:left-8 before:top-6 before:bg-[#EBE7E0] rounded-md before:rounded-full before:size-2 px-8 py-4"
@@ -62,9 +69,13 @@ import Logo from "../components/logo.astro";
           Контактна інформація
         </a>
       </div>
-      <div class="max-w-[988px] flex flex-col gap-[240px]">
+      <div class="max-w-[988px] flex flex-col gap-[75px] lg:gap-[240px]">
         <div class="scroll-mt-10" id="terms-and-conditions">
-          <h1 class="text-[52px] leading-[62px] mb-10">Правила і умови</h1>
+          <h1
+            class="text-[28px] leading-[36px] lg:text-[52px] lg:leading-[62px] mb-5 lg:mb-10"
+          >
+            Правила і умови
+          </h1>
           <p>
             Придбаваючи наш курс медитацій, ви погоджуєтесь із наступними
             правилами та умовами:
@@ -98,7 +109,9 @@ import Logo from "../components/logo.astro";
           </ul>
         </div>
         <div class="scroll-mt-10" id="refund-policy">
-          <h1 class="text-[52px] leading-[62px] mb-10">
+          <h1
+            class="text-[28px] leading-[36px] lg:text-[52px] lg:leading-[62px] mb-5 lg:mb-10"
+          >
             Політика повернення коштів
           </h1>
           <ul class="list-disc ml-5 [&>li]:pl-1 marker:text-[10px]">
@@ -130,7 +143,11 @@ import Logo from "../components/logo.astro";
           </p>
         </div>
         <div class="scroll-mt-10" id="contact">
-          <h1 class="text-[52px] leading-[62px] mb-10">Контактна інформація</h1>
+          <h1
+            class="text-[28px] leading-[36px] lg:text-[52px] lg:leading-[62px] mb-5 lg:mb-10"
+          >
+            Контактна інформація
+          </h1>
           <ul class="list-disc ml-5 [&>li]:pl-1 marker:text-[10px]">
             <li>Юридична назва: Корніюк Іванна</li>
             <li>ІПН: 3547213049</li>
@@ -148,7 +165,6 @@ import Logo from "../components/logo.astro";
         </div>
       </div>
     </div>
+    <Footer className="pb-0 pt-10 lg:pt-0" />
   </body>
-
-  <Footer />
 </html>
