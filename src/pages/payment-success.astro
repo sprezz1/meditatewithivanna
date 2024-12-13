@@ -1,0 +1,57 @@
+---
+import Button from "../components/button.astro";
+import Footer from "../components/footer.astro";
+import Logo from "../components/logo.astro";
+import Telegram from "../svgs/telegram.svg?raw";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Payment successful - Ivanna Korniiuk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased">
+    <div class="border-b border-[#D9D9D9] lg:border-b-0">
+      <Logo className="justify-center py-5 lg:py-10" />
+    </div>
+    <div
+      class="mt-10 text-center max-w-[1012px] px-5 mx-auto lg:mt-[120px] lg:mb-[371px]"
+    >
+      <span
+        class="text-[32px] size-20 items-center inline-flex justify-center bg-[#EBE7E0] rounded-full lg:text-5xl lg:size-[140px]"
+      >
+        ✅
+      </span>
+      <h1
+        class="mt-6 text-[34px] leading-[44px] font-light lg:text-[52px] lg:leading-normal"
+      >
+        Оплата успішна!
+      </h1>
+      <p class="mt-4 mb-[34px] text-lg lg:text-2xl lg:mb-[50px]">
+        Дякуємо за вашу покупку! 🙏
+      </p>
+      <p class="mb-[34px] lg:text-xl lg:mb-[50px]">
+        Ваш платіж було успішно оброблено, і тепер ви можете розпочати свій шлях
+        до спокою та гармонії. Посилання для доступу до медитацій у Telegram вже
+        готове для вас!
+      </p>
+      <Button
+        className="inline-flex items-center justify-center gap-2.5 mx-auto sm:max-w-[360px]"
+      >
+        <Fragment set:html={Telegram} />
+      </Button>
+      <p class="mt-10">Transaction number: 1234567890</p>
+    </div>
+    <div class="border-[#808080] lg:border-t">
+      <Footer className="!pb-0 pt-10 lg:pt-0" />
+    </div>
+  </body>
+</html>
