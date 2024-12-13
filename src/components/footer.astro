@@ -15,12 +15,13 @@ const { className = "" } = Astro.props;
   <Logo className="mb-5 lg:hidden flex justify-center flex-col !gap-0" />
   <div class="lg:flex lg:items-center lg:gap-6">
     <p class="text-[13px] md:text-xl">Залишилися питання?</p>
-    <button
-      class="py-4 px-14 flex items-center gap-[10px] bg-[#EEECDA] hover:bg-[#E0DBC1] transition rounded-[100px] mx-auto mt-4 mb-5 lg:mt-0 lg:mb-0 leading-[30px]"
+    <a
+      class="py-4 px-14 inline-flex items-center gap-[10px] bg-[#EEECDA] hover:bg-[#E0DBC1] transition rounded-[100px] mx-auto mt-4 mb-5 lg:mt-0 lg:mb-0 leading-[30px]"
+      href="https://t.me/+6YSmoRm9kggyOWQy"
     >
       <Fragment set:html={Telegram} />
       <span>Пиши в телеграм</span>
-    </button>
+    </a>
   </div>
   <div class="flex flex-col gap-2.5 text-xs lg:text-base lg:gap-5 lg:flex-row">
     <a href="/terms-and-conditions">Правила і умови</a>
