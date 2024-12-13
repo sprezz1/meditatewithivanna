@@ -1,14 +1,16 @@
 ---
 type Props = {
   className?: string;
+  label?: string;
 };
 
-const { className = "" } = Astro.props;
+const { className = "", label = "Отримати доступ" } = Astro.props;
 ---
 
 <a
   class={`${className} py-6 w-full text-white bg-[#2B2A26] rounded-[50px] lg:max-w-[360px] lg:text-xl transition hover:bg-[#4A4842] inline-block text-center`}
   href="https://t.me/+6YSmoRm9kggyOWQy"
 >
-  Отримати доступ
+  {label}
+  <slot />
 </a>
